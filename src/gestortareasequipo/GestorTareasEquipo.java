@@ -20,14 +20,23 @@ public class GestorTareasEquipo {
             opcion = teclado.nextInt();
             teclado.nextLine();
 
-            if (opcion == 1) {
-                System.out.print("Escribe la tarea: ");
-                String texto = teclado.nextLine();
-                gestor.añadirTarea(texto);
-            }
+            switch (opcion) {
+                case 1:
+                    System.out.print("Escribe la tarea: ");
+                    String texto = teclado.nextLine();
+                    gestor.añadirTarea(texto);  // ← método correcto
+                    break;
 
-            if (opcion == 2) {
-                gestor.mostrarTareas();
+                case 2:
+                    gestor.mostrarTareas();
+                    break;
+
+                case 0:
+                    System.out.println("Adiós!");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
             }
 
         } while (opcion != 0);
