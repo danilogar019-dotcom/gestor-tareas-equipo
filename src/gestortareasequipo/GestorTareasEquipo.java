@@ -7,7 +7,7 @@ public class GestorTareasEquipo {
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner(System.in);
-        GestorTarea gestor = new GestorTarea();
+        GestorTarea gestor = new GestorTarea();  // ← nombre correcto
         int opcion;
 
         do {
@@ -18,20 +18,29 @@ public class GestorTareasEquipo {
             System.out.print("Elige: ");
 
             opcion = teclado.nextInt();
-            teclado.nextLine();
+            teclado.nextLine(); // limpiar buffer
 
-            if (opcion == 1) {
-                System.out.print("Escribe la tarea: ");
-                String texto = teclado.nextLine();
-                gestor.añadirTarea(texto);
-            }
+            switch (opcion) {
+                case 1:
+                    System.out.print("Escribe la tarea: ");
+                    String texto = teclado.nextLine();
+                    gestor.anadirTarea(texto);  // ← método correcto
+                    break;
 
-            if (opcion == 2) {
-                gestor.mostrarTareas();
+                case 2:
+                    gestor.mostrarTareas();
+                    break;
+
+                case 0:
+                    System.out.println("Adiós!");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
             }
 
         } while (opcion != 0);
 
-        System.out.println("Adios!");
+        teclado.close();
     }
 }
