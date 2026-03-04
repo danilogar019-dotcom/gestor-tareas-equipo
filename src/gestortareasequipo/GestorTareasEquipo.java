@@ -24,7 +24,11 @@ public class GestorTareasEquipo {
                 case 1:
                     System.out.print("Escribe la tarea: ");
                     String texto = teclado.nextLine();
+                     << << << < HEAD
                     gestor.anadirTarea(texto);  // ← método correcto
+                     == == ==
+                            = gestor.añadirTarea(texto);  // ← método correcto
+                     >>> >>> > feature - listado
                     break;
 
                 case 2:
